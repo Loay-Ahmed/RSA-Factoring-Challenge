@@ -1,0 +1,26 @@
+#!/usr/bin/python3
+
+"""python3 RSA module"""
+
+from sys import argv
+
+def rsa():
+    try:
+        file = argv[1]
+        with open(file) as f:
+            for num in file:
+                num = int(num)
+                if num % 2 == 0:
+                    print("{}={}*{}".format(num, num//2, 2))
+                    continue
+
+                i = 3
+                while num // 2 > i:
+                    if num % i == 0:
+                        print("{}={}*{}".format(num, num//i, i))
+                        break
+                    i += 2
+                if i == (num // 2) + 1:
+                    print("{}={}*{}".format(num, num//i, i))
+    except:
+        pass
