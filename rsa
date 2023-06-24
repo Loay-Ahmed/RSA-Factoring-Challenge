@@ -6,8 +6,7 @@ from sys import argv
 
 def rsa():
     try:
-        file = argv[1]
-        with open(file) as f:
+        with open(argv[1]) as file:
             for num in file:
                 num = int(num)
                 if num % 2 == 0:
