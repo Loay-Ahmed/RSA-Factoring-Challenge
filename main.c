@@ -25,7 +25,7 @@ int main(int argc, char *argv[])
 		exit(EXIT_FAILURE);
 	}
 
-	while (getline(&buff,&len, fd) != EOF)
+	while (getline(&buff, &len, fd) != EOF)
 	{
 		factor(buff);
 	}
