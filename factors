@@ -10,13 +10,9 @@ def factorize(value):
 
     if value < 2:
         return
-    print()
-    print(value, "<- value-bef")
     while value % i:
         i += 1
     print("{:.0f}={:.0f}*{:.0f}".format(value, value / i, i))
-    print(value, "<- value-aft")
-    print()
 
 if len(argv) != 2:
     exit()
