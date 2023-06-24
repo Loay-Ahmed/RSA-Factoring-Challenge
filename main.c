@@ -1,33 +1,33 @@
 #include "main.h"
 
 /**
- * main - start point of program
+ * main - main function
  *
- * @argc: number of arguments
- * @argv: list of arguments
- * Return: 0 (sccess), 1 (fail)
+ *
+ * Return: void
  */
 int main(int argc, char *argv[])
 {
-	FILE *fd;
-	size_t len;
-	char *buff = NULL;
+	FILE *fptr;
+	size_t count;
+	ssize_t line;
+	char *buffer = NULL;
+
 
 	if (argc != 2)
 	{
-		fprintf(stderr, "usage: factor <filename>\n");
+		fprintf(stderr, "Usage: factor <filename>\n");
 		exit(EXIT_FAILURE);
 	}
-	fd = fopen(argv[1], "r");
-	if (!fd)
+	fptr = fopen(argv[1], "r");
+	if (fptr == NULL)
 	{
 		fprintf(stderr, "Error: can't open file %s\n", argv[1]);
 		exit(EXIT_FAILURE);
 	}
-
-	while (getline(&buff, &len, fd) != EOF)
+	while((line = getline(&buffer, &count, fptr)) != -1)
 	{
-		factor(buff);
+		factorize(buffer);
 	}
-	return (0);
+return (0);
 }

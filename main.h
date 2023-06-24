@@ -1,12 +1,14 @@
-#ifndef MAIN_H
-#define MAIN_H
+#ifndef _main_H_
+#define _main_H_
 
-#include "string.h"
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
 #define _GNU_SOURCE
 
-int factor(char *buffer);
 
-#endif
+/* size_t getline(char **lineptr, size_t *n, FILE *stream); */
+int factorize(char *buffer);
+
+#endif /* _FACTOR_H_ */
