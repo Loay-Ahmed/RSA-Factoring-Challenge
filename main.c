@@ -10,8 +10,10 @@
 int main(int argc, char *argv[])
 {
 	FILE *fd;
-	int i, len = 100, num;
-	char *buff;
+	size_t len;
+	u_int32_t i;
+       	u_int32_t num;
+	char *buff = NULL;
 
 	if (argc != 2)
 		return (1);
@@ -19,16 +21,17 @@ int main(int argc, char *argv[])
 	fd = fopen(argv[1], "r");
 	if (!fd)
 		return (1);
-	while (getline(&buff, (size_t *)&len, fd) != EOF)
+	while (getline(&buff,&len, fd) != EOF)
 	{
 		num = atoi(buff);
-		for (i = 2; i <= 9; i++)
+		for (i = 2; i <= num; i++)
 		{
 			if (num % i == 0)
 			{
-				printf("%d=%d*%d", num, num/i, i);
+				printf("%d=%d*%d\n", num, num / i, i);
 				break;
 			}
 		}
 	}
+	return (0);
 }
