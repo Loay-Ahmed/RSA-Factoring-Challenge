@@ -24,3 +24,5 @@ def rsa():
                     print("{}={}*{}".format(num, num//i, i))
     except:
         pass
+
+rsa()
