@@ -7,4 +7,6 @@
 #include <unistd.h>
 #define _GNU_SOURCE
 
+int factor(char *buffer);
+
 #endif

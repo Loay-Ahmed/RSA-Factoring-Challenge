@@ -11,27 +11,23 @@ int main(int argc, char *argv[])
 {
 	FILE *fd;
 	size_t len;
-	u_int32_t i;
-       	u_int32_t num;
 	char *buff = NULL;
 
 	if (argc != 2)
-		return (1);
-
+	{
+		fprintf(stderr, "usage: factor <filename>\n");
+		exit(EXIT_FAILURE);
+	}
 	fd = fopen(argv[1], "r");
 	if (!fd)
-		return (1);
+	{
+		fprintf(stderr, "Error: can't open file %s\n", argv[1]);
+		exit(EXIT_FAILURE);
+	}
+
 	while (getline(&buff,&len, fd) != EOF)
 	{
-		num = atoi(buff);
-		for (i = 2; i <= num; i++)
-		{
-			if (num % i == 0)
-			{
-				printf("%d=%d*%d\n", num, num / i, i);
-				break;
-			}
-		}
+		factor(buff);
 	}
 	return (0);
 }
